@@ -1,6 +1,7 @@
 import express from "express";
 import authRouters from "./routes/auth";
 import subsRouters from "./routes/subs";
+import artilclesRouters from "./routes/articles";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
@@ -22,6 +23,7 @@ mongoose
     // router
     app.use("/auth", authRouters);
     app.use("/subs", subsRouters);
+    app.use("/articles", artilclesRouters);
     app.listen(8080, () => {
       console.log(`Now you listen to the port 8080`);
     });

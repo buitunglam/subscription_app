@@ -6,6 +6,7 @@ import JWT from "jsonwebtoken";
 import checkAuth from "../middleware/checkAuth";
 import { stripe } from "../utils/stripe";
 import Stripe from "stripe";
+import Article from "../models/article";
 const router = express.Router();
 
 router.get("/prices", checkAuth, async (req, res) => {
