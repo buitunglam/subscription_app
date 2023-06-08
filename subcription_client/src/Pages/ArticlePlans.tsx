@@ -61,6 +61,17 @@ const ArticlePlans = (props: Props) => {
     Premium: "linear-gradient(to top, #f77062 0%, #fe5196 100%)",
   };
 
+  const createSession = async (priceId: string) => {
+    const { data: response } = await axios.post(
+      "http://localhost:8080/subs/sessions",
+      {
+        priceId,
+      }
+    );
+    console.log('response.url...', response);
+    window.location.href = response.session.url
+  };
+
   return (
     <Container>
       <CardsContainer>
@@ -90,7 +101,7 @@ const ArticlePlans = (props: Props) => {
                     <Button
                       variant="primary"
                       className="mt-2"
-                      // onClick={() => createSession(price.id)}
+                      onClick={() => createSession(price.id)}
                     >
                       Buy now
                     </Button>
